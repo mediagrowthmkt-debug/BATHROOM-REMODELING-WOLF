@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolf Carpenters - Navegação de Campanhas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #010101 0%, #1a1a1a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            color: #010101;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .campaign-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .campaign-card {
+            background: #f5f5f5;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .campaign-card:hover {
+            transform: translateY(-5px);
+            border-color: #E1BA47;
+            box-shadow: 0 10px 30px rgba(225, 186, 71, 0.3);
+        }
+
+        .campaign-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .campaign-card h2 {
+            color: #010101;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .campaign-card p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 5px;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: #E1BA47;
+            color: #010101;
+            border: 2px solid #E1BA47;
+        }
+
+        .btn-primary:hover {
+            background: #010101;
+            color: #E1BA47;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #010101;
+            border: 2px solid #010101;
+        }
+
+        .btn-secondary:hover {
+            background: #010101;
+            color: white;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            border-left: 5px solid #E1BA47;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .info-box h3 {
+            color: #010101;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .info-box li {
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .campaign-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏗️ Wolf Carpenters</h1>
+        <p class="subtitle">Bathroom Remodeling - Navegação de Campanhas</p>
+
+        <div class="campaign-grid">
+            <!-- Original -->
+            <div class="campaign-card">
+                <div class="campaign-icon">🏠</div>
+                <h2>Original</h2>
+                <p>Página principal sem rastreamento específico</p>
+                <a href="index.html" class="btn btn-primary">Ver Página</a>
+                <a href="thank-you.html" class="btn btn-secondary">Obrigado</a>
+            </div>
+
+            <!-- Meta Campaign -->
+            <div class="campaign-card">
+                <div class="campaign-icon">📘</div>
+                <h2>Meta / Facebook</h2>
+                <p>Campanha otimizada para Meta Ads</p>
+                <a href="meta/index.html" class="btn btn-primary">Ver Página</a>
+                <a href="meta/thank-you.html" class="btn btn-secondary">Obrigado</a>
+            </div>
+
+            <!-- Google Campaign -->
+            <div class="campaign-card">
+                <div class="campaign-icon">🔍</div>
+                <h2>Google Ads</h2>
+                <p>Campanha otimizada para Google Ads</p>
+                <a href="google/index.html" class="btn btn-primary">Ver Página</a>
+                <a href="google/thank-you.html" class="btn btn-secondary">Obrigado</a>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>ℹ️ Informações Importantes</h3>
+            <p><strong>Rastreamento de Campanhas:</strong></p>
+            <ul>
+                <li><strong>Meta:</strong> campaign="Bathroom Remodeling - Meta"</li>
+                <li><strong>Google:</strong> campaign="Bathroom Remodeling - Google"</li>
+                <li><strong>Original:</strong> campaign="Bathroom Remodeling"</li>
+            </ul>
+            <p style="margin-top: 15px;">
+                Todas as versões compartilham os mesmos recursos (imagens, vídeos) localizados na pasta raiz. 
+                As páginas nas pastas /meta e /google usam caminhos relativos (../) para acessar esses recursos.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
