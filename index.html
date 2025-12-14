@@ -59,8 +59,10 @@
         }
 
         .logo img {
-            height: 60px;
+            height: 90px;
             width: auto;
+            position: relative;
+            z-index: 1001;
         }
 
         .nav-cta {
@@ -85,11 +87,12 @@
         .hero-section {
             position: relative;
             height: 100vh;
-            min-height: 700px;
+            min-height: 750px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            padding-top: 90px;
         }
 
         .hero-video-bg {
@@ -108,7 +111,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(1, 1, 1, 0.85) 0%, rgba(1, 1, 1, 0.6) 100%);
+            background: linear-gradient(135deg, rgba(1, 1, 1, 0.90) 0%, rgba(1, 1, 1, 0.75) 100%);
             z-index: -1;
             animation: fadeIn 1.5s ease-in;
         }
@@ -119,11 +122,20 @@
         }
 
         .hero-content {
-            text-align: center;
             color: var(--white);
-            max-width: 900px;
-            padding: 0 20px;
+            max-width: 1200px;
+            padding: 40px 20px;
             animation: slideUp 1s ease-out;
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 400px;
         }
 
         @keyframes slideUp {
@@ -137,14 +149,16 @@
             }
         }
 
-        .hero-content h1 {
+        .hero-text h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.5);
             line-height: 1.1;
+            font-weight: 800;
+            color: #ffffff;
         }
 
-        .hero-content .highlight {
+        .hero-text .highlight {
             color: var(--primary-color);
         }
 
@@ -160,11 +174,14 @@
             50% { border-color: var(--primary-color); }
         }
 
-        .hero-content p {
+        .hero-text p {
             font-size: 1.3rem;
             margin-bottom: 30px;
-            opacity: 0.95;
+            opacity: 1;
             line-height: 1.6;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            font-weight: 400;
         }
 
         .hero-badges {
@@ -192,6 +209,93 @@
             font-weight: 500;
             font-family: 'Open Sans', sans-serif;
             color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Hero Form - Updated v1.1 */
+        .hero-form-container {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            padding: 35px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+        }
+
+        .hero-form-container h3 {
+            color: var(--secondary-color);
+            font-size: 1.75rem;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .hero-form-container p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Open Sans', sans-serif;
+            background: #ffffff;
+            color: var(--text-dark);
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+            opacity: 1;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(225, 186, 71, 0.1);
+        }
+
+        .hero-form-container .submit-button {
+            width: 100%;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(225, 186, 71, 0.3);
+        }
+
+        .hero-form-container .submit-button:hover {
+            background: #c9a03d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(225, 186, 71, 0.4);
         }
 
         .cta-button {
@@ -952,6 +1056,48 @@
 
         /* Responsive Design */
         @media (max-width: 968px) {
+            .hero-section {
+                min-height: 900px;
+                padding-top: 140px;
+                padding-bottom: 40px;
+                justify-content: flex-start;
+            }
+
+            .hero-content {
+                justify-content: center;
+                padding: 40px 20px;
+            }
+
+            .hero-text {
+                min-width: 100%;
+                text-align: center;
+            }
+
+            .hero-form-container {
+                max-width: 100%;
+                padding: 25px 20px;
+                margin-top: 30px;
+            }
+
+            .hero-form-container h3 {
+                font-size: 1.5rem;
+            }
+
+            .hero-form-container p {
+                font-size: 0.95rem;
+            }
+
+            .form-group input,
+            .form-group select {
+                padding: 13px 14px;
+                font-size: 16px; /* Evita zoom no iOS */
+            }
+
+            .hero-form-container .submit-button {
+                padding: 15px;
+                font-size: 1.05rem;
+            }
+
             .hero-content h1 {
                 font-size: 2.5rem;
             }
@@ -1006,14 +1152,47 @@
         }
 
             @media (max-width: 600px) {
-            .hero-content h1 {
+            /* Home */
+            #home {
+                height: 1155px;
+                transform: translateX(0px) translateY(0px);
+            }
+
+            .hero-section {
+                min-height: 950px;
+                padding-top: 150px;
+                padding-bottom: 60px;
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+
+            .hero-content {
+                padding: 50px 15px;
+                margin-top: 0;
+            }
+
+            .hero-text h1 {
                 font-size: 2rem;
+                text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95), 0 0 15px rgba(0, 0, 0, 0.6);
+                margin-bottom: 15px;
+                line-height: 1.2;
+            }
+
+            .hero-text p {
+                font-size: 1.05rem;
+                margin-bottom: 20px;
+                line-height: 1.5;
             }
 
             .hero-badges {
                 flex-direction: column;
                 gap: 10px;
                 align-items: center;
+                margin-top: 20px;
+            }
+
+            .badge-text {
+                font-size: 0.9rem;
             }
 
             .cta-button {
@@ -1021,8 +1200,41 @@
                 font-size: 1rem;
             }
 
+            .hero-form-container {
+                padding: 20px 16px;
+            }
+
+            .hero-form-container h3 {
+                font-size: 1.35rem;
+            }
+
+            .hero-form-container p {
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            .form-group label {
+                font-size: 0.9rem;
+                margin-bottom: 6px;
+            }
+
+            .form-group input,
+            .form-group select {
+                padding: 12px;
+                font-size: 16px;
+            }
+
+            .hero-form-container .submit-button {
+                padding: 14px;
+                font-size: 1rem;
+            }
+
             .logo img {
-                height: 45px;
+                height: 70px;
             }
 
             .nav-cta {
@@ -1072,22 +1284,52 @@
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Modern Bathroom <span class="typewriter" id="typewriter">Remodeling</span><br>Transform Comfort & Style</h1>
-            <p>Imagine stepping into a bathroom that feels like a private spa—modern, elegant, and designed for your comfort. Wolf Carpenters brings your vision to life, increasing your home's value and your daily well-being.</p>
-            <a href="#contact-form" class="cta-button">Get My Free Bathroom Estimate</a>
-            <div class="hero-badges">
-                <div class="badge">
-                    <span class="badge-icon">⭐</span>
-                    <span class="badge-text">25+ Years Experience</span>
+            <div class="hero-text">
+                <h1>Modern Bathroom <span class="typewriter" id="typewriter">Remodeling</span><br>Transform Comfort & Style</h1>
+                <p>Imagine stepping into a bathroom that feels like a private spa—modern, elegant, and designed for your comfort. Wolf Carpenters brings your vision to life, increasing your home's value and your daily well-being.</p>
+                <div class="hero-badges">
+                    <div class="badge">
+                        <span class="badge-icon">⭐</span>
+                        <span class="badge-text">25+ Years Experience</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon">✓</span>
+                        <span class="badge-text">300+ Bathrooms Transformed</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon">🏆</span>
+                        <span class="badge-text">100% Satisfaction Rate</span>
+                    </div>
                 </div>
-                <div class="badge">
-                    <span class="badge-icon">✓</span>
-                    <span class="badge-text">300+ Bathrooms Transformed</span>
-                </div>
-                <div class="badge">
-                    <span class="badge-icon">🏆</span>
-                    <span class="badge-text">100% Satisfaction Rate</span>
-                </div>
+            </div>
+
+            <!-- Hero Form -->
+            <div class="hero-form-container">
+                <h3>Get Your Free Bathroom Estimate</h3>
+                <p>Start your transformation today</p>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="bathroom-type">What type of bathroom? *</label>
+                        <select id="bathroom-type" name="bathroom-type" required>
+                            <option value="">Select bathroom type</option>
+                            <option value="master-bathroom">Master Bathroom</option>
+                            <option value="guest-bathroom">Guest Bathroom</option>
+                            <option value="powder-room">Powder Room</option>
+                            <option value="full-bathroom">Full Bathroom</option>
+                            <option value="multiple">Multiple Bathrooms</option>
+                            <option value="not-sure">Not Sure Yet</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-button">Get Free Bathroom Consultation</button>
+                </form>
             </div>
         </div>
     </section>
