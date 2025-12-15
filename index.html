@@ -99,7 +99,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            padding-top: 90px;
+            padding-top: 120px;
         }
 
         .hero-video-bg {
@@ -227,6 +227,8 @@
             max-width: 450px;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
             flex-shrink: 0;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-form-container h3 {
@@ -1081,8 +1083,44 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
+        /* Desktop Adjustments */
+        #home .hero-form-container {
+            max-height: 899px;
+        }
+
+        #home h3 {
+            transform: translateX(0px) translateY(0px);
+        }
+
+        @media (min-width: 969px) {
+            #home .hero-form-container {
+                margin-top: 132px;
+            }
+
+            #home {
+                padding-bottom: 63px;
+                padding-top: 15px;
+            }
+
+            #home h3 {
+                font-size: 20px;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 968px) {
+            /* Home */
+            #home {
+                height: 1384px;
+            }
+
+            /* Hero text */
+            #home .hero-text {
+                display: inline-block;
+                transform: translateX(0px) translateY(0px);
+                margin-top: -50px;
+            }
+
             .hero-section {
                 min-height: 900px;
                 padding-top: 140px;
@@ -1101,7 +1139,7 @@
             }
 
             .hero-form-container {
-                max-width: 100%;
+                max-width: 86%;
                 padding: 25px 20px;
                 margin-top: 30px;
             }
@@ -1181,8 +1219,14 @@
             @media (max-width: 600px) {
             /* Home */
             #home {
-                height: 1155px;
+                height: 1384px;
+            }
+
+            /* Hero text */
+            #home .hero-text {
+                display: inline-block;
                 transform: translateX(0px) translateY(0px);
+                margin-top: -50px;
             }
 
             .hero-section {
@@ -1229,6 +1273,7 @@
 
             .hero-form-container {
                 padding: 20px 16px;
+                max-width: 86%;
             }
 
             .hero-form-container h3 {
@@ -1297,7 +1342,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <img src="0 - Brand Logo/brand-logo-wolfcarpenters.webp" alt="Wolf Carpenters Logo">
+                <img src="0 - Brand Logo/logo-wolf-desktop (1).png" alt="Wolf Carpenters Logo">
             </div>
             <a href="#contact-form" class="nav-cta">Get Free Estimate</a>
         </div>
@@ -1351,15 +1396,12 @@
                         <input type="tel" id="hero-phone" name="phone" required placeholder="(555) 123-4567">
                     </div>
                     <div class="form-group">
-                        <label for="hero-bathroom-type">What type of bathroom? *</label>
+                        <label for="hero-bathroom-type">What's the main goal for your bathroom renovation? *</label>
                         <select id="hero-bathroom-type" name="bathroom-type" required>
-                            <option value="">Select bathroom type</option>
-                            <option value="master-bathroom">Master Bathroom</option>
-                            <option value="guest-bathroom">Guest Bathroom</option>
-                            <option value="powder-room">Powder Room</option>
-                            <option value="full-bathroom">Full Bathroom</option>
-                            <option value="multiple">Multiple Bathrooms</option>
-                            <option value="not-sure">Not Sure Yet</option>
+                            <option value="">Select your renovation goal</option>
+                            <option value="full-remodel">Full remodel – new layout, tiles, and fixtures</option>
+                            <option value="partial-upgrade">Partial upgrade – vanity, shower, or flooring</option>
+                            <option value="not-sure">Not sure yet – I'd like some guidance</option>
                         </select>
                     </div>
                     <button type="submit" class="submit-button">Get Free Bathroom Consultation</button>
@@ -1759,20 +1801,20 @@
             <h2 class="section-title">Get Your Free Bathroom Estimate</h2>
             <p class="section-subtitle">Ready to transform your bathroom? Fill out the form below and we'll contact you within 24 hours with a personalized quote.</p>
             <div class="form-container fade-in">
-                <form id="bathroomForm" action="https://hook.us2.make.com/m6c3nxfa5estl25ymykzq44hlvvfnajp" method="POST" target="webhook_iframe">
+                <form id="bathroomForm" action="https://hook.us2.make.com/m6c3nxfa5estl25ymykzq44hlvvfnajp" method="POST">
                     <input type="hidden" name="campaign" value="Bathroom Remodeling">
                     <input type="hidden" name="source" value="Landing Page">
                     <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                        <label for="contact-name">Full Name *</label>
+                        <input type="text" id="contact-name" name="name" required placeholder="Enter your full name">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        <label for="contact-email">Email Address *</label>
+                        <input type="email" id="contact-email" name="email" required placeholder="your.email@example.com">
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+                        <label for="contact-phone">Phone Number *</label>
+                        <input type="tel" id="contact-phone" name="phone" required placeholder="(555) 123-4567">
                     </div>
                     <div class="form-group">
                         <label>What’s the main goal for your bathroom renovation? *</label>
@@ -1791,10 +1833,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Tell us about your project (optional)</label>
-                        <textarea id="message" name="message" placeholder="Share your vision, budget, timeline, or any specific requirements..."></textarea>
-                    </div>
                     <button type="submit" class="submit-button">Get My Free Estimate Now</button>
                     <div class="privacy-notice">
                         By submitting this form, you agree to our <a href="#privacy">Privacy Policy</a> and <a href="#terms">Terms of Service</a>. We respect your privacy and will never share your information with third parties. You may receive updates about your bathroom project via email or phone.
@@ -1803,9 +1841,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Hidden iframe to submit webhook without leaving the page -->
-    <iframe name="webhook_iframe" style="display:none;"></iframe>
 
     
 
@@ -1903,18 +1938,91 @@
             tooltip.classList.add('show');
         }, 10000);
 
-        // Webhook submission via hidden iframe and redirect to thank-you
-        const bathroomForm = document.getElementById('bathroomForm');
-        const webhookIframe = document.getElementsByName('webhook_iframe')[0];
-        let formSubmitted = false;
+        // Função para detectar plataforma baseada na URL
+        function detectPlatform() {
+            const url = window.location.href.toLowerCase();
+            if (url.includes('google')) {
+                return 'GOOGLE ADS';
+            } else if (url.includes('meta') || url.includes('facebook') || url.includes('instagram')) {
+                return 'META';
+            }
+            return 'DIRECT';
+        }
 
-        if (bathroomForm && webhookIframe) {
-            bathroomForm.addEventListener('submit', function () {
-                formSubmitted = true;
-            });
-            webhookIframe.addEventListener('load', function () {
-                if (formSubmitted) {
+        // Função para enviar dados ao webhook
+        async function sendToWebhook(formData) {
+            const webhookUrl = 'https://hook.us2.make.com/m6c3nxfa5estl25ymykzq44hlvvfnajp';
+            
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    console.log('Dados enviados com sucesso');
+                    return true;
+                } else {
+                    console.error('Erro ao enviar dados');
+                    return false;
+                }
+            } catch (error) {
+                console.error('Erro na requisição:', error);
+                return false;
+            }
+        }
+
+        // Formulário do Hero
+        const heroForm = document.getElementById('heroForm');
+        if (heroForm) {
+            heroForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    NOME: document.getElementById('hero-name').value,
+                    EMAIL: document.getElementById('hero-email').value,
+                    TELEFONE: document.getElementById('hero-phone').value,
+                    PERGUNTA: document.getElementById('hero-bathroom-type').value,
+                    PLATAFORMA: detectPlatform(),
+                    FONTE: 'Bathroom Remodeling - Hero Form',
+                    QUANDO: new Date().toISOString()
+                };
+                
+                const success = await sendToWebhook(formData);
+                if (success) {
                     window.location.href = 'thank-you.html';
+                } else {
+                    alert('Erro ao enviar formulário. Por favor, tente novamente.');
+                }
+            });
+        }
+
+        // Formulário de Contato
+        const bathroomForm = document.getElementById('bathroomForm');
+        if (bathroomForm) {
+            bathroomForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const renovationGoal = document.querySelector('input[name="renovation-goal"]:checked');
+                
+                const formData = {
+                    NOME: document.getElementById('contact-name').value,
+                    EMAIL: document.getElementById('contact-email').value,
+                    TELEFONE: document.getElementById('contact-phone').value,
+                    PERGUNTA: renovationGoal ? renovationGoal.value : '',
+                    PLATAFORMA: detectPlatform(),
+                    FONTE: 'Bathroom Remodeling - Contact Form',
+                    QUANDO: new Date().toISOString()
+                };
+                
+                const success = await sendToWebhook(formData);
+                if (success) {
+                    window.location.href = 'thank-you.html';
+                } else {
+                    alert('Erro ao enviar formulário. Por favor, tente novamente.');
                 }
             });
         }
