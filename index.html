@@ -43,7 +43,7 @@
             top: 0;
             width: 100%;
             background: rgba(1, 1, 1, 0.95);
-            padding: 15px 0;
+            padding: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -52,17 +52,22 @@
         .navbar .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 5px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo img {
-            height: 90px;
-            width: auto;
+        .logo {
             position: relative;
             z-index: 1001;
+            margin: -10px 0 -30px 0;
+        }
+
+        .logo img {
+            height: 143px;
+            width: auto;
+            display: block;
         }
 
         .nav-cta {
@@ -75,6 +80,8 @@
             font-family: 'Montserrat', sans-serif;
             transition: all 0.3s ease;
             border: 2px solid var(--primary-color);
+            position: relative;
+            top: 0;
         }
 
         .nav-cta:hover {
@@ -237,43 +244,56 @@
             text-align: center;
         }
 
-        .form-group {
+        .hero-form-container .form-group {
             margin-bottom: 18px;
         }
 
-        .form-group label {
+        .hero-form-container .form-group label {
             display: block;
-            color: var(--secondary-color);
+            color: #000000 !important;
             font-weight: 700;
             margin-bottom: 8px;
             font-size: 0.95rem;
             font-family: 'Montserrat', sans-serif;
         }
 
-        .form-group input,
-        .form-group select {
+        .hero-form-container .form-group input,
+        .hero-form-container .form-group select {
             width: 100%;
             padding: 14px 16px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #cccccc !important;
             border-radius: 8px;
             font-size: 1rem;
             transition: all 0.3s ease;
             font-family: 'Open Sans', sans-serif;
-            background: #ffffff;
-            color: var(--text-dark);
+            background: #ffffff !important;
+            color: #333333 !important;
+            -webkit-text-fill-color: #333333 !important;
         }
 
-        .form-group input::placeholder {
-            color: #999;
-            opacity: 1;
+        .hero-form-container .form-group input::placeholder {
+            color: #999999 !important;
+            opacity: 1 !important;
+            -webkit-text-fill-color: #999999 !important;
         }
 
-        .form-group input:focus,
-        .form-group select:focus {
+        .hero-form-container .form-group select {
+            color: #333333 !important;
+            -webkit-text-fill-color: #333333 !important;
+        }
+
+        .hero-form-container .form-group select option {
+            color: #333333 !important;
+            background: #ffffff !important;
+        }
+
+        .hero-form-container .form-group input:focus,
+        .hero-form-container .form-group select:focus {
             outline: none;
-            border-color: var(--primary-color);
-            background: #ffffff;
+            border-color: var(--primary-color) !important;
+            background: #ffffff !important;
             box-shadow: 0 0 0 3px rgba(225, 186, 71, 0.1);
+            color: #333333 !important;
         }
 
         .hero-form-container .submit-button {
@@ -487,6 +507,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .portfolio-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
         }
 
         /* Features Section - DESIRE */
@@ -1234,7 +1261,8 @@
             }
 
             .logo img {
-                height: 70px;
+                height: 65px;
+                top: -8px;
             }
 
             .nav-cta {
@@ -1269,7 +1297,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <img src="0 - Brand Logo/brand-logo-wolfcarpenters.png" alt="Wolf Carpenters Logo">
+                <img src="0 - Brand Logo/brand-logo-wolfcarpenters.webp" alt="Wolf Carpenters Logo">
             </div>
             <a href="#contact-form" class="nav-cta">Get Free Estimate</a>
         </div>
@@ -1278,7 +1306,9 @@
     <!-- Hero Section - ATTENTION -->
     <section class="hero-section" id="home">
         <video class="hero-video-bg" autoplay muted loop playsinline preload="auto" id="heroVideo">
+            <source src="1 - Hero Section - Bathroom Remodeling Introduction/hero-bathroom-video-1.webm" type="video/webm">
             <source src="1 - Hero Section - Bathroom Remodeling Introduction/hero-bathroom-video-1.mp4" type="video/mp4">
+            <source src="1 - Hero Section - Bathroom Remodeling Introduction/hero-bathroom-video-2.webm" type="video/webm">
             <source src="1 - Hero Section - Bathroom Remodeling Introduction/hero-bathroom-video-2.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -1307,18 +1337,22 @@
             <div class="hero-form-container">
                 <h3>Get Your Free Bathroom Estimate</h3>
                 <p>Start your transformation today</p>
-                <form action="#" method="POST">
+                <form id="heroForm" action="https://hook.us2.make.com/m6c3nxfa5estl25ymykzq44hlvvfnajp" method="POST">
                     <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required placeholder="Your name">
+                        <label for="hero-name">Full Name *</label>
+                        <input type="text" id="hero-name" name="name" required placeholder="Your name">
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+                        <label for="hero-email">Email *</label>
+                        <input type="email" id="hero-email" name="email" required placeholder="your.email@example.com">
                     </div>
                     <div class="form-group">
-                        <label for="bathroom-type">What type of bathroom? *</label>
-                        <select id="bathroom-type" name="bathroom-type" required>
+                        <label for="hero-phone">Phone Number *</label>
+                        <input type="tel" id="hero-phone" name="phone" required placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="hero-bathroom-type">What type of bathroom? *</label>
+                        <select id="hero-bathroom-type" name="bathroom-type" required>
                             <option value="">Select bathroom type</option>
                             <option value="master-bathroom">Master Bathroom</option>
                             <option value="guest-bathroom">Guest Bathroom</option>
@@ -1341,8 +1375,8 @@
             <p class="section-subtitle">Drag the slider to see how an outdated bathroom becomes a modern sanctuary. This could be your home next!</p>
             <div class="comparison-container fade-in">
                 <div class="image-slider-container" id="imageSlider">
-                    <img src="2 - Before and After Transformation/after-bathroom-renovated.jpg" alt="Bathroom After Renovation" class="img-after">
-                    <img src="2 - Before and After Transformation/before-bathroom-construction.jpg" alt="Bathroom Before Renovation" class="img-before" id="imgBefore">
+                    <img src="2 - Before and After Transformation/after-bathroom-renovated.webp" alt="Bathroom After Renovation" class="img-after">
+                    <img src="2 - Before and After Transformation/before-bathroom-construction.webp" alt="Bathroom Before Renovation" class="img-before" id="imgBefore">
                     <div class="slider-line" id="sliderLine"></div>
                     <div class="slider-button" id="sliderButton"></div>
                     <span class="comparison-label label-before">BEFORE</span>
@@ -1361,23 +1395,86 @@
             <h2 class="section-title">Our <span style="color: var(--primary-color);">Bathroom Remodeling</span> Portfolio</h2>
             <p class="section-subtitle">Every bathroom we remodel is a blend of comfort, style, and functionality. Explore our finished projects and imagine the possibilities for your home.</p>
             <div class="portfolio-grid fade-in">
+                <!-- Portfolio Images -->
                 <div class="portfolio-item">
-                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-bathroom-clean-modern.jpg" alt="Clean Modern Bathroom">
+                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-bathroom-clean-modern.webp" alt="Clean Modern Bathroom">
                 </div>
                 <div class="portfolio-item">
-                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-bathroom-dark-style-1.jpg" alt="Dark Style Bathroom">
+                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-bathroom-dark-style-1.webp" alt="Dark Style Bathroom">
                 </div>
                 <div class="portfolio-item">
-                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-bathroom-white-modern-1.jpg" alt="White Modern Bathroom">
+                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-bathroom-dark-style-2.webp" alt="Dark Style Bathroom 2">
                 </div>
                 <div class="portfolio-item">
-                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-bathroom-light-1.jpg" alt="Light Bathroom Design">
+                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-bathroom-white-modern-1.webp" alt="White Modern Bathroom">
                 </div>
                 <div class="portfolio-item">
-                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-master-bathroom.jpg" alt="Master Bathroom">
+                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-bathroom-white-modern-2.webp" alt="White Modern Bathroom 2">
                 </div>
                 <div class="portfolio-item">
-                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-bathroom-intro.jpg" alt="Bathroom Project Intro">
+                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-bathroom-light-1.webp" alt="Light Bathroom Design">
+                </div>
+                <div class="portfolio-item">
+                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-bathroom-light-2.webp" alt="Light Bathroom Design 2">
+                </div>
+                <div class="portfolio-item">
+                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-bathroom-light-3.webp" alt="Light Bathroom Design 3">
+                </div>
+                <div class="portfolio-item">
+                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-bathroom-light-4.webp" alt="Light Bathroom Design 4">
+                </div>
+                <div class="portfolio-item">
+                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-master-bathroom.webp" alt="Master Bathroom">
+                </div>
+                <div class="portfolio-item">
+                    <img src="3 - Bathroom Portfolio - Finished Projects/portfolio-bathroom-intro.webp" alt="Bathroom Project Intro">
+                </div>
+                
+                <!-- Additional Portfolio Images -->
+                <div class="portfolio-item">
+                    <img src="portifolio imagens/20241030_104948.webp" alt="Bathroom Remodel Project">
+                </div>
+                <div class="portfolio-item">
+                    <img src="portifolio imagens/20241030_105005_001.webp" alt="Bathroom Remodel Detail">
+                </div>
+                <div class="portfolio-item">
+                    <img src="portifolio imagens/IMG-20240913-WA0063.webp" alt="Custom Bathroom Design">
+                </div>
+                <div class="portfolio-item">
+                    <img src="portifolio imagens/2.webp" alt="Bathroom Portfolio">
+                </div>
+                <div class="portfolio-item">
+                    <img src="portifolio imagens/3.webp" alt="Bathroom Showcase">
+                </div>
+                
+                <!-- Portfolio Videos -->
+                <div class="portfolio-item">
+                    <video controls>
+                        <source src="3 - Bathroom Portfolio - Finished Projects/portfolio-video-custom-design.webm" type="video/webm">
+                        <source src="3 - Bathroom Portfolio - Finished Projects/portfolio-video-custom-design.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="portfolio-item">
+                    <video controls>
+                        <source src="4 - Portfolio Videos - Bathroom Showcase/portfolio-bathroom-showcase-video.webm" type="video/webm">
+                        <source src="4 - Portfolio Videos - Bathroom Showcase/portfolio-bathroom-showcase-video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="portfolio-item">
+                    <video controls>
+                        <source src="portifolio imagens/VID-20240913-WA0062 (1).webm" type="video/webm">
+                        <source src="portifolio imagens/VID-20240913-WA0062 (1).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="portfolio-item">
+                    <video controls>
+                        <source src="portifolio imagens/VID-20240913-WA0066 (1).webm" type="video/webm">
+                        <source src="portifolio imagens/VID-20240913-WA0066 (1).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 20px;">
@@ -1435,13 +1532,13 @@
             <div class="team-content fade-in">
                 <div class="team-images">
                     <div class="team-image-main">
-                        <img src="6 - Meet the Team - Wolf Carpenters Crew/team-group-in-warehouse.jpg" alt="Wolf Carpenters Bathroom Team">
+                        <img src="6 - Meet the Team - Wolf Carpenters Crew/team-group-in-warehouse.webp" alt="Wolf Carpenters Bathroom Team">
                     </div>
                     <div class="team-image-small">
-                        <img src="6 - Meet the Team - Wolf Carpenters Crew/team-leaders-closeup.jpg" alt="Wolf Carpenters Leaders">
+                        <img src="6 - Meet the Team - Wolf Carpenters Crew/team-leaders-closeup.webp" alt="Wolf Carpenters Leaders">
                     </div>
                     <div class="team-image-small">
-                        <img src="6 - Meet the Team - Wolf Carpenters Crew/team-planning-blueprints.jpg" alt="Team Planning Meeting">
+                        <img src="6 - Meet the Team - Wolf Carpenters Crew/team-planning-blueprints.webp" alt="Team Planning Meeting">
                     </div>
                 </div>
                 <div class="team-text">
