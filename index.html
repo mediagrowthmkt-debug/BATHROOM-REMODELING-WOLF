@@ -1941,12 +1941,18 @@
         // Função para detectar plataforma baseada na URL
         function detectPlatform() {
             const url = window.location.href.toLowerCase();
-            if (url.includes('google')) {
-                return 'GOOGLE ADS';
-            } else if (url.includes('meta') || url.includes('facebook') || url.includes('instagram')) {
+            const params = new URLSearchParams(window.location.search);
+            
+            // Verifica parâmetros UTM primeiro
+            const utmSource = params.get('utm_source')?.toLowerCase() || '';
+            const utmMedium = params.get('utm_medium')?.toLowerCase() || '';
+            
+            if (url.includes('google') || utmSource.includes('google') || utmMedium.includes('cpc') || utmMedium.includes('ppc')) {
+                return 'GOOGLE';
+            } else if (url.includes('meta') || url.includes('facebook') || url.includes('instagram') || utmSource.includes('meta') || utmSource.includes('facebook') || utmSource.includes('instagram')) {
                 return 'META';
             }
-            return 'DIRECT';
+            return 'ORGANIC';
         }
 
         // Função para enviar dados ao webhook
@@ -1981,14 +1987,17 @@
             heroForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
+                const platform = detectPlatform();
+                
                 const formData = {
-                    NOME: document.getElementById('hero-name').value,
-                    EMAIL: document.getElementById('hero-email').value,
-                    TELEFONE: document.getElementById('hero-phone').value,
-                    PERGUNTA: document.getElementById('hero-bathroom-type').value,
-                    PLATAFORMA: detectPlatform(),
-                    FONTE: 'Bathroom Remodeling - Hero Form',
-                    QUANDO: new Date().toISOString()
+                    name: document.getElementById('hero-name').value,
+                    email: document.getElementById('hero-email').value,
+                    phone: document.getElementById('hero-phone').value,
+                    Qualified_question: document.getElementById('hero-bathroom-type').value,
+                    campaign_name: 'Bathroom Remodeling',
+                    page_name: 'Bathroom Remodeling | Wolf Carpenters',
+                    FONTE: platform,
+                    PLATAFORMA: platform
                 };
                 
                 const success = await sendToWebhook(formData);
@@ -2007,15 +2016,17 @@
                 e.preventDefault();
                 
                 const renovationGoal = document.querySelector('input[name="renovation-goal"]:checked');
+                const platform = detectPlatform();
                 
                 const formData = {
-                    NOME: document.getElementById('contact-name').value,
-                    EMAIL: document.getElementById('contact-email').value,
-                    TELEFONE: document.getElementById('contact-phone').value,
-                    PERGUNTA: renovationGoal ? renovationGoal.value : '',
-                    PLATAFORMA: detectPlatform(),
-                    FONTE: 'Bathroom Remodeling - Contact Form',
-                    QUANDO: new Date().toISOString()
+                    name: document.getElementById('contact-name').value,
+                    email: document.getElementById('contact-email').value,
+                    phone: document.getElementById('contact-phone').value,
+                    Qualified_question: renovationGoal ? renovationGoal.value : '',
+                    campaign_name: 'Bathroom Remodeling',
+                    page_name: 'Bathroom Remodeling | Wolf Carpenters',
+                    FONTE: platform,
+                    PLATAFORMA: platform
                 };
                 
                 const success = await sendToWebhook(formData);
