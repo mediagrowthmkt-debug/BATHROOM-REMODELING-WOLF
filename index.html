@@ -1969,10 +1969,10 @@
                 });
                 
                 if (response.ok) {
-                    console.log('Dados enviados com sucesso');
+                    console.log('Dados enviados com sucesso ao webhook');
                     return true;
                 } else {
-                    console.error('Erro ao enviar dados');
+                    console.error('Erro ao enviar dados:', response.status);
                     return false;
                 }
             } catch (error) {
@@ -1988,17 +1988,20 @@
                 e.preventDefault();
                 
                 const platform = detectPlatform();
+                const pageUrl = window.location.href;
                 
                 const formData = {
-                    name: document.getElementById('hero-name').value,
-                    email: document.getElementById('hero-email').value,
-                    phone: document.getElementById('hero-phone').value,
-                    Qualified_question: document.getElementById('hero-bathroom-type').value,
+                    email: document.getElementById('hero-email').value || '',
+                    phone: document.getElementById('hero-phone').value || '',
+                    name: document.getElementById('hero-name').value || '',
                     campaign_name: 'Bathroom Remodeling',
                     page_name: 'Bathroom Remodeling | Wolf Carpenters',
-                    FONTE: platform,
-                    PLATAFORMA: platform
+                    FONTE: pageUrl,
+                    PLATAFORMA: platform,
+                    Qualified_question: document.getElementById('hero-bathroom-type').value || ''
                 };
+                
+                console.log('Enviando dados do Hero Form:', formData);
                 
                 const success = await sendToWebhook(formData);
                 if (success) {
@@ -2017,17 +2020,20 @@
                 
                 const renovationGoal = document.querySelector('input[name="renovation-goal"]:checked');
                 const platform = detectPlatform();
+                const pageUrl = window.location.href;
                 
                 const formData = {
-                    name: document.getElementById('contact-name').value,
-                    email: document.getElementById('contact-email').value,
-                    phone: document.getElementById('contact-phone').value,
-                    Qualified_question: renovationGoal ? renovationGoal.value : '',
+                    email: document.getElementById('contact-email').value || '',
+                    phone: document.getElementById('contact-phone').value || '',
+                    name: document.getElementById('contact-name').value || '',
                     campaign_name: 'Bathroom Remodeling',
                     page_name: 'Bathroom Remodeling | Wolf Carpenters',
-                    FONTE: platform,
-                    PLATAFORMA: platform
+                    FONTE: pageUrl,
+                    PLATAFORMA: platform,
+                    Qualified_question: renovationGoal ? renovationGoal.value : ''
                 };
+                
+                console.log('Enviando dados do Contact Form:', formData);
                 
                 const success = await sendToWebhook(formData);
                 if (success) {
