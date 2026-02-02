@@ -4,8 +4,8 @@
     <!-- Campaign Tracking Script - MUST BE FIRST -->
     <script>
         // Salva a origem do visitante no sessionStorage
-        sessionStorage.setItem('fonte', 'google');
-        sessionStorage.setItem('plataforma', 'GOOGLE');
+        sessionStorage.setItem('fonte', 'organic');
+        sessionStorage.setItem('plataforma', 'ORGANIC');
     </script>
 
 
@@ -1834,9 +1834,9 @@
             <div class="form-container fade-in">
                 <form id="bathroomForm" action="https://hook.us2.make.com/m6c3nxfa5estl25ymykzq44hlvvfnajp" method="POST">
                     <input type="hidden" name="campaign" value="Bathroom Remodeling">
-                    <input type="hidden" name="fonte" value="google">
-                    <input type="hidden" name="plataforma" value="GOOGLE">
-                    <input type="hidden" name="source" value="Landing Page - Google">
+                    <input type="hidden" name="fonte" value="organic">
+                    <input type="hidden" name="plataforma" value="ORGANIC">
+                    <input type="hidden" name="source" value="Landing Page - Organic">
                     <div class="form-group">
                         <label for="contact-name">Full Name *</label>
                         <input type="text" id="contact-name" name="name" required placeholder="Enter your full name">
@@ -1985,7 +1985,7 @@
             } else if (url.includes('meta') || url.includes('facebook') || url.includes('instagram') || utmSource.includes('meta') || utmSource.includes('facebook') || utmSource.includes('instagram')) {
                 return 'META';
             }
-            return 'GOOGLE';
+            return 'ORGANIC';
         }
 
         // Função para enviar dados ao webhook
